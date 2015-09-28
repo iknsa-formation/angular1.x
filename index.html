@@ -17,15 +17,32 @@
     </div>
 
     <div class="row-fluid col-xs-8 col-xs-offset-2">
-      <button class="contenu1" onclick="showContent1()">Contenu 1</button>
-      <button class="contenu2" onclick="showContent2()">Contenu 2</button>
-      <div id="contenu1">
-          <h2>Contenu 1</h2>
+      <hr>
+      <input type="number" ng-model="amount" aria-label="amount"> <br>
+      default currency symbol ($): <span id="currency-default">{{amount | currency}}</span><br>
+
+      <h2>Filter to uppercase</h2>
+      {{ 'cette phrase était en minuscule' | uppercase }}
+
+      <h2>Filter array of object</h2>
+
+      <div ng-init="friends = [{name:'John', phone:'555-1276'},
+                               {name:'Mary', phone:'800-BIG-MARY'},
+                               {name:'Mike', phone:'555-4321'},
+                               {name:'Adam', phone:'555-5678'},
+                               {name:'Julie', phone:'555-8765'},
+                               {name:'Juliette', phone:'555-5678'}]">
       </div>
 
-      <div id="contenu2">
-          <h2>Contenu 2</h2>
-      </div>
+      <label>Search: <input ng-model="searchText"></label>
+      <table id="searchTextResults">
+        <tr><th>Name</th><th>Phone</th></tr>
+        <tr ng-repeat="friend in friends | filter:searchText">
+          <td>{{friend.name}}</td>
+          <td>{{friend.phone}}</td>
+        </tr>
+      </table>
+      <hr>
     </div>
     <!-- End Page Content -->
     <script src="js/angular.min.js"></script>
