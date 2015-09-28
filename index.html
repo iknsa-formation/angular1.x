@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="demoApp">
+<html ng-app="myApp">
   <head>
     <meta charset="utf-8">
     <title>AngularJs Course - IKNSA</title>
@@ -9,29 +9,22 @@
   <body>
     <!-- Page Content -->
     <div class="jumbotron col-xs-8 col-xs-offset-2">
-      <label for="name">Name: </label>
-      <!-- Directive ng-model -->
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <!-- Two-way data-binding -->
-      <h1>Hello {{yourName}}!</h1>
-    </div>
 
-    <div class="row-fluid col-xs-8 col-xs-offset-2">
+      <!-- injection des vues -->
+      <ng-view></ng-view>
 
-      <div ng-controller="friendsController">
-        <label>Search: <input ng-model="searchText"></label>
-        <table id="searchTextResults">
-          <tr><th>Name</th><th>Phone</th></tr>
-          <tr ng-repeat="friend in friends | filter:searchText | orderBy:'name'">
-            <td>{{friend.name}}</td>
-            <td>{{friend.phone}}</td>
-          </tr>
-        </table>
-      </div>
       <hr>
+      <ul>
+        <li>
+          <a href="#/friends">Friends</a>
+        </li>
+        <li><a href="#/contact">Contact</a></li>
+      </ul>
+
     </div>
     <!-- End Page Content -->
     <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>

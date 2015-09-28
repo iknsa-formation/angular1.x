@@ -1,6 +1,20 @@
-var demoApp = angular.module('demoApp', []);
+var myApp = angular.module('myApp', ['ngRoute']);
 
-demoApp.controller('friendsController', function($scope) {
+myApp.config(function($routeProvider) {
+    $routeProvider
+        .when('/', {
+            controller: 'friendsController',
+            templateUrl: 'templates/friends.html'
+        })
+        .when('/contact', {
+            controller: 'friendsController',
+            templateUrl: 'templates/contact.html'
+        })
+        .otherwise({redirectTo: '/'})
+        ;
+});
+
+myApp.controller('friendsController', function($scope) {
     $scope.friends = [
         {name:'John', phone:'555-1276'},
         {name:'Mary', phone:'800-BIG-MARY'},
