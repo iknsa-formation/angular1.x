@@ -1,18 +1,21 @@
 <h2>Page contact</h2>
-
 <div class="row-fluid">
-    <form action="#" ng-submit="formSubmit()">
+    <form name="myForm" action="/" ng-submit="formSubmit()" novalidate>
         <div class="form-group">
             <label for="name">name:</label>
-            <input type="text" class="form-control" ng-model="formName">
+
+            <input type="text" class="form-control" name="name" ng-model="formName" ng-required='true'>
+
+            <span class="error" ng-show="myForm.name.$error.required">Ce champ est requis</span>
         </div>
         <div class="form-group">
             <label for="name">email:</label>
-            <input type="text" class="form-control" ng-model="formEmail">
+
+            <input type="text" class="form-control" name="email" ng-model="formEmail">
         </div>
         <div class="form-group">
             <label for="name">tel:</label>
-            <input type="text" class="form-control" ng-model="formTel">
+            <input type="text" class="form-control" name="tel" ng-model="formTel">
         </div>
 
         <div class="form-group">
