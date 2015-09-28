@@ -7,7 +7,7 @@ myApp.config(function($routeProvider) {
             templateUrl: 'templates/friends.html'
         })
         .when('/contact', {
-            controller: 'friendsController',
+            controller: 'formController',
             templateUrl: 'templates/contact.html'
         })
         .otherwise({redirectTo: '/'})
@@ -23,4 +23,12 @@ myApp.controller('friendsController', function($scope) {
         {name:'Julie', phone:'555-8765'},
         {name:'Juliette', phone:'555-5678'}
     ];
+});
+
+myApp.controller('formController', function($scope) {
+    $scope.formSubmit = function() {
+        if($scope.formName) {
+            console.log($scope.formName);
+        }
+    }
 });
