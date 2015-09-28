@@ -15,8 +15,22 @@
       <!-- Two-way data-binding -->
       <h1>Hello {{yourName}}!</h1>
     </div>
+
+    <div class="row-fluid col-xs-8 col-xs-offset-2">
+      
+      <button ng-click="tab = 1" class="contenu1">Contenu 1</button>
+      <button ng-click="tab = 2" class="contenu2">Contenu 2</button>
+      <div ng-show="tab === 1" id="contenu1">
+          <h2>Contenu 1 avec angular</h2>
+      </div>
+
+      <div ng-show="tab === 2" id="contenu2">
+          <h2>Contenu 2 avec angular</h2>
+      </div>
+    </div>
     <!-- End Page Content -->
     <script src="js/angular.min.js"></script>
+    <script src="js/script.js"></script>
     <script src="js/app.js"></script>
   </body>
 </html>
